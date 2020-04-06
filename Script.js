@@ -4,7 +4,7 @@ window.onload = function () {
 	var game = new Game(400, 500);  				//画面サイズを400*500にする。（このサイズだとスマホでも快適なのでおススメ）
 
 	//結果ツイート時にURLを貼るため、このゲームのURLをここに記入
-	var url = "https://mgmgmgmi.github.io/CoronaGame/index.html";
+	var url = "https://mgmgmgmi.github.io/CoronaGame/";
 	url = encodeURI(url); //きちんとURLがツイート画面に反映されるようにエンコードする
 	/////////////////////////////////////////////////
 	//ゲーム開始前に必要な画像・音を読み込む部分
@@ -52,8 +52,6 @@ window.onload = function () {
 		S_Text.width = 400;							//横幅指定　今回画面サイズ400pxなので、width:400pxだと折り返して二行目表示してくれる
 		S_Text.moveTo(0, 30);						//移動位置指定
 		S_MAIN.addChild(S_Text);					//S_MAINシーンにこの画像を埋め込む
-
-		S_Text.text = "現在：" + Point;					//テキストに文字表示 Pointは変数なので、ここの数字が増える
 
 		//コロナボタン
 		var Corona = new Sprite(229, 230);				//画像サイズをここに書く。使う予定の画像サイズはプロパティで見ておくこと
@@ -116,7 +114,7 @@ window.onload = function () {
 			}
 
 			//現在のテキスト表示
-			S_Text.text = "現在：" + Point; 				//Point変数が変化するので、毎フレームごとにPointの値を読み込んだ文章を表示する
+			S_Text.text = "コロナを" + Point + "匹やっつけた"; 				//Point変数が変化するので、毎フレームごとにPointの値を読み込んだ文章を表示する
 
 			//ゲームオーバー判定
 			if (Corona.x >= 400) {						//画面端にコロナ画像が行ってしまったら
@@ -124,7 +122,7 @@ window.onload = function () {
 				game.pushScene(S_END);				//S_ENDシーンを読み込ませる
 
 				//ゲームオーバー後のテキスト表示
-				S_GameOverText.text = "GAMEOVER 記録：" + Point + "匹";				//テキストに文字表示 
+				S_GameOverText.text = "GAMEOVER コロナを" + Point + "匹やっつけた！";				//テキストに文字表示 
 			}
 
 		};
@@ -165,7 +163,7 @@ window.onload = function () {
 		S_Tweet.ontouchend = function () {				//S_Tweetボタンをタッチした（タッチして離した）時にこの中の内容を実行する
 			//ツイートＡＰＩに送信
 
-			window.open("http://twitter.com/intent/tweet?text=コロナウイルス" + Point + "匹やっつけた&hashtags=コロナゲーム&url=" + url); //ハッシュタグ付くようにした。
+			window.open("http://twitter.com/intent/tweet?text=コロナウイルス" + Point + "匹やっつけた！&hashtags=コロナをやっつけろ&url=" + url); //ハッシュタグ付くようにした。
 		};
 
 	};
