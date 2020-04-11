@@ -163,7 +163,13 @@ window.onload = function () {
 		S_Tweet.ontouchend = function () {				//S_Tweetボタンをタッチした（タッチして離した）時にこの中の内容を実行する
 			//ツイートＡＰＩに送信
 
-			window.open("http://twitter.com/intent/tweet?text=コロナウイルス" + Point + "匹やっつけた！&hashtags=コロナをやっつけろ&url=" + url); //ハッシュタグ付くようにした。
+			window.open(
+				"http://twitter.com/intent/tweet?"
+				+ "text=コロナウイルス" + Point + "匹やっつけた！"
+				+ "&hashtags=コロナをやっつけろ"
+				+ "&via=mgmgmogumi"
+				+ "&url=" + url
+			);
 		};
 
 	};
